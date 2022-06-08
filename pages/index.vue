@@ -10,7 +10,7 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
         <!-- Navigation -->
         <Navbar />
         <!-- Heading -->
-        <h1>Cloud & Crema</h1>
+        <h1>Cloud & Crem</h1>
         <!-- Current Time -->
         <time
           class="text-small text-charcoal-ghost inline-block my-8"
