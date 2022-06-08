@@ -1,10 +1,18 @@
-/* IBM Plex Mono; the lab font */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap');
-
+/* Stylized */
 @font-face {
   font-family: 'underground';
-  src: url('./fonts/p22-underground.woff') format('woff');
+  src: url('./fonts/p22-underground.woff') format('woff'),
+    url('./fonts/p22-underground.woff2') format('woff2'),
+    url('./fonts/p22-underground.ttf') format('ttf');
 }
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('./fonts/IBMPlexMono.woff2') format('woff2'),
+    url('./fonts/IBMPlexMono.ttf') format('ttf');
+}
+
+/* Body */
 
 @font-face {
   font-family: 'Montserrat';
