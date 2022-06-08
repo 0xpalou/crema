@@ -5,7 +5,7 @@
     >
       <NuxtLink
         :to="`/%E2%98%95/${post.key}`"
-        class="flex-grow snippet-title"
+        class="flex-grow snippet-title font-underground"
         :style="{ margin: '0' }"
       >
         {{ post.title }}
