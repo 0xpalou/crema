@@ -59,6 +59,18 @@ export default Vue.extend({
     Navbar,
     Snippet,
   },
+  head: {
+    title: 'Cloud & Crema',g: 'en',
+    },
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'A newsletter about the new and exciting goingons in the development of the internet;;; meant to be digested pleasantly over a cup of coffee',
+      },
+    ],
+  },
   asyncData: async () => {
     return new Promise<any>((resolve) => {
       fetch('https://crema-api.palou.workers.dev/list', {
