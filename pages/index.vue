@@ -23,7 +23,9 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
       <Snippet
         :post="post"
         :key="i"
-        v-for="(post, i) in posts.sort((a, b) => return a.timestamp > b.timestamp ? -1 : 1)"
+        v-for="(post, i) in posts.sort((a, b) =>
+          a.timestamp > b.timestamp ? -1 : 1
+        )"
       />
     </div>
   </div>
@@ -59,17 +61,18 @@ export default Vue.extend({
     Navbar,
     Snippet,
   },
-  head: {
-    title: 'Cloud & Crema',g: 'en',
-    },
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'A newsletter about the new and exciting goingons in the development of the internet;;; meant to be digested pleasantly over a cup of coffee',
-      },
-    ],
+  head: () => {
+    return {
+      title: 'Cloud & Crema',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'A newsletter about the new and exciting goingons in the development of the internet;;; meant to be digested pleasantly over a cup of coffee',
+        },
+      ],
+    }
   },
   asyncData: async () => {
     return new Promise<any>((resolve) => {

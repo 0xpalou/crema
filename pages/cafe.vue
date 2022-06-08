@@ -50,6 +50,19 @@ export default Vue.extend({
   components: {
     Navbar,
   },
+  head() {
+    return {
+      title: 'The Cloud Cafe',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'A newsletter about the new and exciting goingons in the development of the internet;;; meant to be digested pleasantly over a cup of coffee',
+        },
+      ],
+    }
+  },
   data: () => {
     return {
       now: new Date(),

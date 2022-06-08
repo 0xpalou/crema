@@ -28,11 +28,39 @@
   </div>
 </template>
 
-<script>
+<script lang="js">
 import Vue from 'vue'
 import { marked } from 'marked'
 
 export default Vue.extend({
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.snippet,
+        },
+        {
+          name: 'og:title',
+          content: this.post.title,
+        },
+        {
+          name: 'og:url',
+          content: `https://crema.pages.dev/☕/${this.post.key}`,
+        },
+        {
+          name: 'og:description',
+          content: this.post.snippet,
+        },
+        {
+          name: 'og:image',
+          content: this.post.cover,
+        },
+      ],
+    }
+  },
   asyncData: async ({ params }) => {
     return new Promise((resolve) => {
       fetch(`https://crema-api.palou.workers.dev/post/${params.slug}`, {
