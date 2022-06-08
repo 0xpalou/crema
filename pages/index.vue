@@ -20,7 +20,11 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
         </time>
       </header>
       <!-- Blog Posts -->
-      <Snippet :post="post" :key="i" v-for="(post, i) in posts" />
+      <Snippet
+        :post="post"
+        :key="i"
+        v-for="(post, i) in posts.sort((a, b) => return a.timestamp < b.timestamp ? -1 : 1)"
+      />
     </div>
   </div>
 </template>
