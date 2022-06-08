@@ -15,7 +15,7 @@ module.exports = {
       'charcoal-ghost': '#7D7D7D',
     },
     fontFamily: {
-      sans: 'Montserrat, sans-serif',
+      sans: 'Montserrat',
       underground: 'underground, sans-serif',
       machine: 'IBM Plex Mono, monospace',
     },

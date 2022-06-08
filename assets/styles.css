@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply text-body font-sans;
+  @apply text-body font-sans text-charcoal;
 }
 
 p,

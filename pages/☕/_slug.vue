@@ -5,7 +5,7 @@
         <!-- Navigation -->
         <Navbar />
         <!-- Heading -->
-        <h1>{{ post.title }}</h1>
+        <h1 class="font-light">{{ post.title }}</h1>
         <!-- Current Time -->
         <time
           class="text-small text-charcoal-ghost inline-block my-8"

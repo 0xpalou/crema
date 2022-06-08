@@ -7,7 +7,7 @@
     >
       <Navbar />
       <header>
-        <h1>Cafe</h1>
+        <h1 class="font-light">Cafe</h1>
         <time
           class="text-small text-charcoal-ghost inline-block my-8"
           :datetime="now.toISOString()"
