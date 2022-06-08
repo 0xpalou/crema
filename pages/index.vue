@@ -10,7 +10,7 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
         <!-- Navigation -->
         <Navbar />
         <!-- Heading -->
-        <h1>Cloud & Crem</h1>
+        <h1>Cloud & Crema</h1>
         <!-- Current Time -->
         <time
           class="text-small text-charcoal-ghost inline-block my-8"
@@ -20,13 +20,7 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
         </time>
       </header>
       <!-- Blog Posts -->
-      <Snippet
-        :post="post"
-        :key="i"
-        v-for="(post, i) in posts.sort((a, b) =>
-          a.timestamp > b.timestamp ? -1 : 1
-        )"
-      />
+      <Snippet :post="post" :key="i" v-for="(post, i) in posts" />
     </div>
   </div>
 </template>
@@ -72,6 +66,7 @@ export default Vue.extend({
             'A newsletter about the new and exciting goingons in the development of the internet;;; meant to be digested pleasantly over a cup of coffee',
         },
       ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     }
   },
   asyncData: async () => {
@@ -105,6 +100,7 @@ export default Vue.extend({
                 })
               })
             ).then(() => {
+              posts.sort((a, b) => (a.timestamp > b.timestamp ? -1 : 1))
               resolve({ posts })
             })
           })
@@ -124,6 +120,7 @@ export default Vue.extend({
       clock: formatClock(new Date()),
     }
   },
+  /*
   mounted: function () {
     this.interval = setInterval(() => {
       this.now = new Date()
@@ -132,6 +129,7 @@ export default Vue.extend({
   beforeDestroy: function () {
     clearInterval(this.interval)
   },
+  */
   watch: {
     now: function (newTime) {
       this.clock = formatClock(newTime)

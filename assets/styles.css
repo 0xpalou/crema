@@ -51,7 +51,8 @@ time {
 }
 
 .snippet-title {
-  @apply text-h3 font-medium;
+  @apply text-h3 font-semibold;
+  letter-spacing: 0.2em;
   font-variant: all-small-caps;
 }
 
