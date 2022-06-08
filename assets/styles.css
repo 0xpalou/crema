@@ -1,0 +1,73 @@
+/* Montserrat; a sans-serif used for normal text*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+/* IBM Plex Mono; the lab font */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply text-body font-sans;
+}
+
+p,
+h1,
+h2,
+h3,
+img {
+  margin-top: 0.68em;
+  margin-bottom: 0.32em;
+}
+
+h1 {
+  @apply text-h1;
+}
+
+h2 {
+  @apply text-h2;
+}
+
+h3 {
+  @apply text-h3;
+}
+
+time {
+  @apply font-machine;
+}
+
+/* App Layout */
+#app {
+  margin: 8px 16px;
+  background-image: url("@/assets/drafing-paper.jpg");
+  overflow: hidden;
+}
+
+#page {
+  width: 800px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 8px -2px #262626;
+}
+
+.nav-item {
+  @apply text-center cursor-pointer mx-8 font-semibold;
+  font-variant: all-small-caps;
+  line-height: 1rem;
+}
+
+.snippet-title {
+  @apply text-h3 font-medium;
+  font-variant: all-small-caps;
+}
+
+/* Scrollbar */
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
