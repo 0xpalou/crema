@@ -10,9 +10,12 @@ p,
 h1,
 h2,
 h3,
+ul,
+ol,
 img {
-  margin-top: 0.68em;
-  margin-bottom: 0.32em;
+  line-height: 1.68em;
+  margin-top: 1em;
+  margin-bottom: 0.68em;
 }
 
 h1 {
@@ -27,11 +30,22 @@ h3 {
   @apply text-h3;
 }
 
+ul {
+  list-style: disc inside;
+}
+ol {
+  list-style: decimal inside;
+}
+
 time {
   @apply font-machine;
 }
 a {
-  @apply hover:underline font-medium;
+  @apply underline font-medium;
+}
+
+html {
+  @apply bg-paper;
 }
 
 /* App Layout */
@@ -40,33 +54,45 @@ a {
   background-image: url('@/assets/drafing-paper.jpg');
   overflow: hidden;
 }
-
 #page {
-  width: 800px;
+  padding: 32px 64px;
+  max-width: 800px;
   margin: 0 auto;
   box-shadow: 0px 0px 8px -2px #262626;
+  overflow: auto;
+}
+
+@media (max-width: 800px) {
+  #page {
+    padding: 32px 0;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 8px -2px #262626ee;
+  }
 }
 
 .nav-item {
-  @apply text-center cursor-pointer mx-8 font-semibold;
+  @apply text-center cursor-pointer mx-8 font-semibold text-h3;
+  text-decoration: none;
   font-variant: all-small-caps;
   line-height: 1rem;
 }
 
 .snippet-title {
   @apply text-h3 font-semibold;
+  text-decoration: none;
   letter-spacing: 0.2em;
   font-variant: all-small-caps;
 }
 
 /* Scrollbar */
 /* Hide scrollbar for Chrome, Safari and Opera */
-html::-webkit-scrollbar {
+#page::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-html {
+#page {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

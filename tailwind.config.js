@@ -20,10 +20,10 @@ module.exports = {
       machine: 'IBM Plex Mono, monospace',
     },
     fontSize: {
-      body: '18px',
-      h1: '2rem',
-      h2: '1.59rem',
-      h3: '1.26rem',
+      body: '16px',
+      h1: '2.82rem',
+      h2: '2rem',
+      h3: '1.41rem',
       small: '.79rem',
     },
     spacing: {

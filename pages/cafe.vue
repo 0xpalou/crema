@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <div
-      id="page"
-      class="bg-paper px-64 py-32"
-      :style="{ height: 'calc(100vh - 16px)' }"
-    >
+    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
       <Navbar />
       <header>
-        <h1 class="font-light">Cafe</h1>
+        <h1 class="font-light mb-0">Cafe</h1>
         <time
-          class="text-small text-charcoal-ghost inline-block my-8"
+          class="text-small text-charcoal-ghost inline-block mb-8"
           :datetime="now.toISOString()"
         >
           {{ clock }}

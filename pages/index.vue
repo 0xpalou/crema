@@ -5,15 +5,15 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
 
 <template>
   <div id="app">
-    <div id="page" class="bg-paper px-64 py-32">
+    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
       <header>
         <!-- Navigation -->
         <Navbar />
         <!-- Heading -->
-        <h1 class="font-light">Cloud & Crema</h1>
+        <h1 class="font-light mb-0">Cloud & Crema</h1>
         <!-- Current Time -->
         <time
-          class="text-small text-charcoal-ghost inline-block my-8"
+          class="text-charcoal-ghost inline-block mb-8"
           :datetime="now.toISOString()"
         >
           {{ clock }}

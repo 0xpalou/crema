@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div id="page" class="bg-paper px-64 py-32">
+    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
       <header class="">
         <!-- Navigation -->
         <Navbar />
         <!-- Heading -->
-        <h1 class="font-light">{{ post.title }}</h1>
+        <h1 class="font-light mb-0">{{ post.title }}</h1>
         <!-- Current Time -->
         <time
-          class="text-small text-charcoal-ghost inline-block my-8"
+          class="text-charcoal-ghost inline-block mb-8"
           :datetime="post.timestamp.toISOString()"
         >
           {{ _clock }}
