@@ -30,6 +30,9 @@ h3 {
 time {
   @apply font-machine;
 }
+a {
+  @apply hover:underline font-medium;
+}
 
 /* App Layout */
 #app {
