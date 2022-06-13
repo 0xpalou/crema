@@ -17,7 +17,7 @@
       <img
         :src="post.cover"
         alt=""
-        class="my-16 cover border-t-2 border-charcoal pt-8"
+        class="my-16 cover border-t-2 border-charcoal pt-16"
       />
       <article
         class="my-16"

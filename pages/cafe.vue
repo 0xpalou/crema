@@ -12,7 +12,8 @@
         </time>
       </header>
       <article class="my-16 cover border-t-2 border-charcoal pt-8">
-        gallery
+        <img src="@/assets/tea-pavilion.png" alt="" />
+        <h2 class="text-center my-32">coming soon ☕</h2>
       </article>
     </div>
   </div>

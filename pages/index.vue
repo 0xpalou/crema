@@ -120,7 +120,6 @@ export default Vue.extend({
       clock: formatClock(new Date()),
     }
   },
-  /*
   mounted: function () {
     this.interval = setInterval(() => {
       this.now = new Date()
@@ -129,7 +128,6 @@ export default Vue.extend({
   beforeDestroy: function () {
     clearInterval(this.interval)
   },
-  */
   watch: {
     now: function (newTime) {
       this.clock = formatClock(newTime)

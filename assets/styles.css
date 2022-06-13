@@ -37,8 +37,10 @@ ol {
   list-style: decimal inside;
 }
 
-time {
+time,
+address {
   @apply font-machine;
+  font-style: normal;
 }
 a {
   @apply underline font-medium;
