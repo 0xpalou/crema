@@ -4,23 +4,23 @@
       class="flex border-t-2 border-t-charcoal border-b border-b-charcoal-ghost items-center jusitfy-between py-8 my-16"
     >
       <NuxtLink
-        :to="`/%E2%98%95/${post.key}`"
+        :to="`/%E2%98%95/${post.id}`"
         class="flex-grow snippet-title font-underground"
         :style="{ margin: '0' }"
       >
-        {{ post.title }}
+        {{ post.metadata.name }}
       </NuxtLink>
       <time
         class="text-charcoal-ghost text-small"
-        :datetime="post.timestamp.toISOString()"
+        :datetime="_timestamp.toISOString()"
       >
         {{ _clock }}
       </time>
     </div>
 
-    <img :src="post.cover" alt="" class="my-16 cover" />
+    <img :src="post.metadata.image" alt="" class="my-16 cover" />
     <section class="content">
-      {{ post.snippet }}
+      {{ post.metadata.description }}
     </section>
   </article>
 </template>
@@ -40,14 +40,17 @@ export default Vue.extend({
     return {}
   },
   computed: {
+    _timestamp: function () {
+      return new Date(this.post.createdAt)
+    },
     _clock: function () {
       return `
-      ${(this.post.timestamp.getMonth() + 1).toLocaleString(undefined, {
+      ${(this._timestamp.getMonth() + 1).toLocaleString(undefined, {
         minimumIntegerDigits: 2,
-      })}.${this.post.timestamp
+      })}.${this._timestamp
         .getDate()
         .toLocaleString(undefined, { minimumIntegerDigits: 2 })}.${(
-        this.post.timestamp.getFullYear() % 100
+        this._timestamp.getFullYear() % 100
       ).toLocaleString(undefined, {
         minimumIntegerDigits: 2,
       })}

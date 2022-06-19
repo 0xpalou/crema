@@ -18,6 +18,12 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  env: {
+    MUMBAI_RPC_URL: process.env.MUMBAI_RPC_URL,
+    LENS_HUB_CONTRACT: process.env.LENS_HUB_CONTRACT,
+    LENS_PERIPHERY_CONTRACT: process.env.LENS_PERIPHERY_CONTRACT,
+    PROFILE_ID: process.env.PROFILE_ID,
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/styles.css', '~/assets/fonts.css'],

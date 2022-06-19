@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     colors: {
+      none: '#FFFCF700',
       'off-white': '#E2DCC9',
       /* App */
       charcoal: '#262626',

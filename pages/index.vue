@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { links, getPost } from '@/components/posts'
-const { data: posts, pending } = await useAsyncData('posts', () => {})
-</script>
-
 <template>
   <div id="app">
     <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
@@ -29,6 +24,7 @@ const { data: posts, pending } = await useAsyncData('posts', () => {})
 import Vue from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import Snippet from '@/components/Snippet.vue'
+import list from '@/scripts/list'
 
 const formatClock = function (now: Date) {
   return `
@@ -70,48 +66,8 @@ export default Vue.extend({
     }
   },
   asyncData: async () => {
-    return new Promise<any>((resolve) => {
-      fetch('https://crema-api.palou.workers.dev/list', {
-        method: 'GET',
-      }).then(async (keysRes) => {
-        if (keysRes.status == 200) {
-          keysRes.json().then((keys) => {
-            const posts: Array<any> = []
-            Promise.all(
-              keys.map((key: string) => {
-                return new Promise<void>((finish) => {
-                  fetch(`https://crema-api.palou.workers.dev/post/${key}`, {
-                    method: 'GET',
-                  }).then((postRes) => {
-                    if (postRes.status == 200) {
-                      postRes.json().then((post) => {
-                        post.timestamp = new Date(post.timestamp)
-                        posts.push(post)
-                        finish()
-                      })
-                    } else
-                      [
-                        postRes.text().then((postError) => {
-                          console.error(postError)
-                          resolve(postError)
-                        }),
-                      ]
-                  })
-                })
-              })
-            ).then(() => {
-              posts.sort((a, b) => (a.timestamp > b.timestamp ? -1 : 1))
-              resolve({ posts })
-            })
-          })
-        } else {
-          keysRes.text().then((keysError) => {
-            console.error(keysError)
-            resolve(keysError)
-          })
-        }
-      })
-    })
+    const posts = (await list()).data.publications.items
+    return { posts }
   },
   data: () => {
     return {
@@ -120,7 +76,7 @@ export default Vue.extend({
       clock: formatClock(new Date()),
     }
   },
-  mounted: function () {
+  mounted: async function () {
     this.interval = setInterval(() => {
       this.now = new Date()
     }, 500)

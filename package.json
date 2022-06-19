@@ -13,9 +13,16 @@
     "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.8",
     "core-js": "^3.19.3",
-    "marked": "^4.0.16",
+    "cross-fetch": "^3.1.5",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.8",
+    "graphql": "^16.5.0",
+    "marked": "^4.0.17",
     "nuxt": "^2.15.8",
+    "omit-deep": "^0.3.0",
+    "urql": "^2.2.2",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
@@ -34,5 +41,10 @@
     "eslint-plugin-vue": "^8.2.0",
     "postcss": "^8.4.4",
     "prettier": "^2.5.1"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
