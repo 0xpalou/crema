@@ -50,6 +50,21 @@
           publish
         </a>
       </div>
+      <!-- Check Indexing -->
+      <div class="flex w-full gap-16 items-end" v-if="owner">
+        <input
+          type="text"
+          v-model="txHash"
+          class="border-b border-charcoal flex-grow bg-none outline-none font-machine"
+          placeholder="transaction hash"
+        />
+        <a
+          @click="checkTransaction"
+          class="text-small text-charcoal-ghost hover:text-charcoal cursor-pointer font-machine"
+        >
+          check
+        </a>
+      </div>
       <!-- Publish Result -->
       <div class="" v-if="owner">
         <span class="font-bold" v-if="published">Transaction Hash:</span>
@@ -61,23 +76,6 @@
         <br v-if="published" />
         <span class="font-bold">Indexed:</span>
         <a href="https://lenster.xyz/u/palou.lens">{{ checkIndex }}</a>
-      </div>
-      <!-- Check Indexing -->
-      <div class="" v-if="owner">
-        <div class="flex w-full gap-16 items-end">
-          <input
-            type="text"
-            v-model="txHash"
-            class="border-b border-charcoal flex-grow bg-none outline-none font-machine"
-            placeholder="transaction hash"
-          />
-          <a
-            @click="checkTransaction"
-            class="text-small text-charcoal-ghost hover:text-charcoal cursor-pointer font-machine"
-          >
-            check
-          </a>
-        </div>
       </div>
 
       <!-- Snippet -->
