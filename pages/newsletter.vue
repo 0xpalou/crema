@@ -75,7 +75,9 @@
         }}</a>
         <br v-if="published" />
         <span class="font-bold">Indexed:</span>
-        <a href="https://lenster.xyz/u/palou.lens">{{ checkIndex }}</a>
+        <a href="https://lenster.xyz/u/palou.lens">{{
+          checkIndex || indexed
+        }}</a>
       </div>
 
       <!-- Snippet -->
