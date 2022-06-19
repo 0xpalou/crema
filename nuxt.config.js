@@ -12,7 +12,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'A newsletter about the new and exciting goingons in the development of the internet;;; meant to be digested pleasantly over a cup of coffee',
+          'A newsletter about the technical going-ons of the internet;;; meant to be digested pleasantly over a cup of coffee',
       },
       { name: 'format-detection', content: 'telephone=no' },
     ],
