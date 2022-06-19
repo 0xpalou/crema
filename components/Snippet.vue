@@ -44,13 +44,14 @@ export default Vue.extend({
       return new Date(this.post.createdAt)
     },
     _clock: function () {
+      const timestamp = new Date(this.post.createdAt)
       return `
-      ${(this._timestamp.getMonth() + 1).toLocaleString(undefined, {
+      ${(timestamp.getMonth() + 1).toLocaleString(undefined, {
         minimumIntegerDigits: 2,
-      })}.${this._timestamp
+      })}.${timestamp
         .getDate()
         .toLocaleString(undefined, { minimumIntegerDigits: 2 })}.${(
-        this._timestamp.getFullYear() % 100
+        timestamp.getFullYear() % 100
       ).toLocaleString(undefined, {
         minimumIntegerDigits: 2,
       })}
