@@ -51,7 +51,7 @@
         </a>
       </div>
       <!-- Publish Result -->
-      <div class="">
+      <div class="" v-if="owner">
         <span class="font-bold" v-if="published">Transaction Hash:</span>
         <a :href="`https://polygonscan.com/tx/${tx.hash}`" v-if="published">{{
           tx.hash.substr(0, 5) +
