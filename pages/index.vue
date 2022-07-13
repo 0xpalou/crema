@@ -1,21 +1,19 @@
 <template>
   <div id="app">
-    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
+    <div id="page" class="bg-paper">
+      <!-- Navigation -->
+      <Navbar />
       <header>
-        <!-- Navigation -->
-        <Navbar />
         <!-- Heading -->
-        <h1 class="font-light mb-0">Cloud & Crema</h1>
+        <h1 class="font-light">Cloud & Crema</h1>
         <!-- Current Time -->
-        <time
-          class="text-charcoal-ghost inline-block mb-8"
-          :datetime="now.toISOString()"
-        >
+        <time class="text-ash inline-block" :datetime="now.toISOString()">
           {{ clock }}
         </time>
       </header>
       <!-- Blog Posts -->
       <Snippet :post="post" :key="i" v-for="(post, i) in posts" />
+      <Subscribe />
     </div>
   </div>
 </template>
@@ -24,6 +22,7 @@
 import Vue from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import Snippet from '@/components/Snippet.vue'
+import Subscribe from '@/components/Subscribe.vue'
 import list from '@/scripts/list'
 
 const formatClock = function (now: Date) {
@@ -50,6 +49,7 @@ export default Vue.extend({
   components: {
     Navbar,
     Snippet,
+    Subscribe,
   },
   head: () => {
     return {
@@ -93,17 +93,3 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped></style>
-
-<!--
-<template>
-  <Tutorial />
-</template>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'index',
-})
-</script>
--->

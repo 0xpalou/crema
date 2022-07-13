@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
+    <div id="page" class="bg-paper">
       <Navbar />
       <header>
-        <h1 class="font-light mb-0">Cafe</h1>
-        <time
-          class="text-small text-charcoal-ghost inline-block mb-8"
-          :datetime="now.toISOString()"
-        >
+        <!-- Heading -->
+        <h1 class="font-light">Cloud & Crema</h1>
+        <!-- Current Time -->
+        <time class="text-ash inline-block" :datetime="now.toISOString()">
           {{ clock }}
         </time>
       </header>
-      <article class="my-16 cover border-t-2 border-charcoal pt-8">
+      <article class="cover">
         <img src="@/assets/tea-pavilion.png" alt="" />
-        <h2 class="text-center my-32">coming soon ☕</h2>
+        <h2 class="text-center">coming soon ☕</h2>
       </article>
     </div>
   </div>

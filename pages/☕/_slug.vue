@@ -1,39 +1,35 @@
 <template>
   <div id="app">
-    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
-      <header class="">
-        <!-- Navigation -->
-        <Navbar />
+    <div id="page" class="bg-paper">
+      <!-- Navigation -->
+      <Navbar />
+      <header>
         <!-- Heading -->
-        <h1 class="font-light mb-0">{{ publication.metadata.name }}</h1>
+        <h1 class="font-light">{{ publication.metadata.name }}</h1>
         <!-- Current Time -->
-        <time
-          class="text-charcoal-ghost inline-block mb-8"
-          :datetime="_timestamp"
-        >
+        <time class="text-ash inline-block" :datetime="_timestamp">
           {{ _clock }}
         </time>
       </header>
-      <img
-        :src="publication.metadata.image"
-        alt=""
-        class="my-16 cover border-t-2 border-charcoal pt-16"
-      />
-      <article
-        class="my-16"
-        v-html="_content"
-        :style="{ width: '100%' }"
-      ></article>
+      <article>
+        <img :src="publication.metadata.image" alt="" class="cover" />
+        <section v-html="_content"></section>
+      </article>
+      <Subscribe />
     </div>
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue'
+import Subscribe from "@/components/Subscribe.vue"
 import { marked } from 'marked'
 import get from "@/scripts/get"
 
 export default Vue.extend({
+  components: {
+    Subscribe
+  },
   head() {
     return {
       title: this.publication.metadata.name,
@@ -92,10 +88,6 @@ export default Vue.extend({
 
 <style lang="css" scoped>
 .cover {
-  width: 100%;
-  min-height: 30vh;
-  max-height: 80vh;
-  object-fit: contain;
-  object-position: center;
+  max-height: 60ch;
 }
 </style>

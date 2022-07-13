@@ -1,7 +1,7 @@
 <template>
   <article class="relative">
     <div
-      class="flex border-t-2 border-t-charcoal border-b border-b-charcoal-ghost items-center jusitfy-between py-8 my-16"
+      class="flex border-b border-charcoal items-center jusitfy-between py-8"
     >
       <NuxtLink
         :to="`/%E2%98%95/${post.id}`"
@@ -10,15 +10,12 @@
       >
         {{ post.metadata.name }}
       </NuxtLink>
-      <time
-        class="text-charcoal-ghost text-small"
-        :datetime="_timestamp.toISOString()"
-      >
+      <time class="text-ash" :datetime="_timestamp.toISOString()">
         {{ _clock }}
       </time>
     </div>
 
-    <img :src="post.metadata.image" alt="" class="my-16 cover" />
+    <img :src="post.metadata.image" alt="" class="cover" />
     <section class="content">
       {{ post.metadata.description }}
     </section>
@@ -61,11 +58,4 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="css" scoped>
-.cover {
-  width: 100%;
-  max-height: 50vh;
-  object-fit: cover;
-  object-position: center;
-}
-</style>
+<style lang="css" scoped></style>

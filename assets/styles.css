@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 html {
-  @apply text-body font-sans text-charcoal;
+  @apply font-sans leading-body text-charcoal bg-paper;
+  font-size: 1.125em;
 }
 
 p,
@@ -13,21 +14,20 @@ h3,
 ul,
 ol,
 img {
-  line-height: 1.68em;
   margin-top: 1em;
-  margin-bottom: 0.68em;
+  margin-bottom: 0.59em;
 }
 
 h1 {
-  @apply text-h1;
+  @apply text-h1 leading-heading;
 }
 
 h2 {
-  @apply text-h2;
+  @apply text-h2 leading-heading;
 }
 
 h3 {
-  @apply text-h3;
+  @apply text-h3 leading-heading;
 }
 
 ul {
@@ -37,54 +37,84 @@ ol {
   list-style: decimal inside;
 }
 
-time,
-address {
+time {
   @apply font-machine;
+}
+address {
+  @apply font-machine text-footer;
   font-style: normal;
 }
+
 a {
   @apply underline font-medium;
 }
 
-html {
-  @apply bg-paper;
+input {
+  @apply outline-none bg-none;
+}
+
+/* Special Tags */
+
+nav a {
+  @apply text-center cursor-pointer font-semibold font-navigation text-h2;
+  text-decoration: none;
+  font-variant: all-small-caps;
+  line-height: 1em;
+}
+
+header {
+  margin: 2.822rem 0 1.68rem;
+}
+header h1 {
+  font-size: 2.822rem;
+  margin: 0;
+}
+
+article {
+  @apply relative border-t-2 border-charcoal;
+  margin: 1.68rem 0 0;
+}
+
+.snippet-title {
+  @apply font-semibold text-h3;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  font-variant: all-small-caps;
+}
+
+.cover {
+  width: 100%;
+  max-height: 36ch;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* App Layout */
 #app {
-  margin: 8px 16px;
+  margin: 12px 20px;
   background-image: url('@/assets/drafing-paper.jpg');
   overflow: hidden;
 }
 #page {
-  padding: 32px 64px;
-  max-width: 800px;
+  padding: 0 50px;
+  max-width: calc(60ch + 100px);
   margin: 0 auto;
   box-shadow: 0px 0px 8px -2px #262626;
   overflow: auto;
+  height: calc(100vh - 24px);
 }
 
-@media (max-width: 800px) {
+/* Mobile  */
+@media (max-width: 820px) {
+  #app {
+    margin: 0;
+  }
   #page {
-    padding: 32px 0;
+    padding: 0 12px;
     max-width: 100%;
     margin: 0 auto;
     box-shadow: 0px 0px 8px -2px #262626ee;
   }
-}
-
-.nav-item {
-  @apply text-center cursor-pointer mx-8 font-semibold text-h3;
-  text-decoration: none;
-  font-variant: all-small-caps;
-  line-height: 1rem;
-}
-
-.snippet-title {
-  @apply text-h3 font-semibold;
-  text-decoration: none;
-  letter-spacing: 0.2em;
-  font-variant: all-small-caps;
 }
 
 /* Scrollbar */

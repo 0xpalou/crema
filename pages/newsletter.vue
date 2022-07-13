@@ -1,16 +1,20 @@
 <template lang="html">
   <div id="app">
-    <div id="page" class="bg-paper" :style="{ height: 'calc(100vh - 16px)' }">
+    <div id="page" class="bg-paper">
+      <!-- Navigation -->
       <Navbar />
       <header>
-        <h1 class="font-light mb-0">Newsletter</h1>
+        <!-- Heading -->
+        <h1 class="font-light">Cloud & Crema</h1>
+        <!-- Current Time -->
         <address
-          class="text-small text-charcoal-ghost inline-block mb-8 cursor-pointer underline hover:text-charcoal"
+          class="text-ash inline-block cursor-pointer underline hover:text-charcoal"
           @click="connect"
         >
           {{ address.length > 0 ? address : 'connect' }}
         </address>
       </header>
+
       <!-- For the Owner -->
       <div class="flex w-full gap-16 items-end" v-if="owner">
         <input
@@ -107,29 +111,7 @@
       ></article>
 
       <!-- For Subscribers -->
-      <article
-        class="my-16 cover border-t-2 border-charcoal pt-8"
-        v-if="!owner"
-      >
-        <div class="flex justify-between items-start">
-          <address class="text-small">
-            <li>palou.eth</li>
-            <li>Cloud & Crema</li>
-            <li>San Francisco, CA</li>
-          </address>
-          <img
-            src="@/assets/stamp.png"
-            alt=""
-            :style="{
-              width: '75px',
-              height: '75px',
-              'object-fit': 'contain',
-              margin: '0',
-            }"
-          />
-        </div>
-        <h2 class="text-center my-32">coming soon 🚠</h2>
-      </article>
+      <Subscribe />
     </div>
   </div>
 </template>
@@ -144,6 +126,7 @@ import indexer from "@/scripts/indexer"
 import { initProvider, getAddress } from '@/scripts/ethers'
 import Navbar from '@/components/Navbar.vue'
 import Snippet from '@/components/Snippet.vue'
+import Subscribe from '@/components/Subscribe.vue'
 
 export default Vue.extend({
   name: 'cafe',
@@ -178,9 +161,14 @@ export default Vue.extend({
       indexed: false,
       txHash: "",
       checkIndex: false,
+      subscribeEmail: "timothyfhein@gmail.com",
+      subscribeName: "Timmy",
+      subscribeAddress: "",
+      subscribeMessage: "",
     }
   },
   mounted: async function () {
+    if(window.ethereum && window.ethereum.selectedAddress.length > 0) this.address = window.ethereum.selectedAddress;
     await initProvider()
     await initLens()
   },
@@ -212,7 +200,7 @@ export default Vue.extend({
       })
     },
     getPost: function () {
-      fetch('https://crema-api.palou.workers.dev/post', {
+      fetch('https://api.cloudandcrema.com/post', {
         method: 'POST',
         body: JSON.stringify({ url: this.mirror }),
       }).then((response) => {
@@ -241,5 +229,14 @@ export default Vue.extend({
 address li {
   @apply border-b border-charcoal;
   list-style: none;
+}
+
+.shadow-btn:hover {
+  @apply cursor-pointer;
+  box-shadow: 2px 3px #262626;
+}
+
+.shadow-btn:active {
+  box-shadow: inset 2px 3px #262626;
 }
 </style>
