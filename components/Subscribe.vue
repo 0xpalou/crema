@@ -1,15 +1,18 @@
 <template>
   <article class="relative">
     <h2>Subscribe</h2>
-    <div class="flex py-8 gap-12">
+    <div class="flex flex-wrap py-8 gap-12 items-center justify-center">
       <input
         type="text"
         v-model="subscriptionEmail"
+        :style="{ 'flex-grow': '999' }"
         class="input-landing flex-grow"
         placeholder="email address"
         :readonly="subscribed"
       />
-      <div class="btn-landing" @click="subscribe">subscribe</div>
+      <div class="btn-landing justify-center flex-grow" @click="subscribe">
+        subscribe
+      </div>
     </div>
   </article>
 </template>
